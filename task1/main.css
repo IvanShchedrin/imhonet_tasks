@@ -1,0 +1,38 @@
+html, body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+#text_wrap{
+    width: 90%;
+    position: relative;
+    margin: 30px auto 0;
+    font-family: Tahoma, sans-serif;
+}
+
+#text_wrap p{
+    margin: 0;
+    font-size: .9em;
+}
+
+.fixer{
+    float: left;
+    clear: left;
+    font-size: .9em;
+    color: rgba(255,255,255,1);
+}
+
+#text_wrap .big_first{
+    position: absolute;
+    left: 0;
+    font-size: 10em;
+    margin-top: -.25em;
+}
+
+#text_wrap .big_last{
+    float: right;
+    font-size: 9.5em;
+    margin-top: -.32em;
+    margin-left: -.05em;
+}

@@ -1,0 +1,65 @@
+html, body{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+#container{
+    width: 70%;
+    margin-left: 20%;
+    margin-top: 30px;
+}
+#container .articles{
+    display: block;
+    float: left;
+    width:70%;
+    line-height: 1.5;
+}
+#container .article-list{
+    counter-reset: item;
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: 400;
+    padding-right: 10px;
+}
+#container .article-list .quote{
+    position: relative;
+    font-size: 1.7em;
+    line-height: 1.3;
+}
+#container .article-list .quote .quote-begin{
+    display: inline-block;
+    position: absolute;
+    left: -25px;
+}
+#container .article-list li{
+    list-style: none;
+    margin-bottom: 15px;
+}
+#container .article-list li:before{
+    display: inline-block;
+    content: counter(item) ") ";
+    counter-increment: item;
+    width: 2em;
+    font-size: .8em;
+    margin-left: -2em;
+}
+
+
+#container .expression{
+    display: block;
+    float: right;
+    width: 30%;
+}
+#container .expression{
+    line-height: 1.5;
+    font-size: .9em;
+    margin-top: -5px;
+}
+
+
+@media screen and (max-width: 768px){
+    #container{
+        width: 539px !important;
+        margin-left: 150px;
+    }
+}

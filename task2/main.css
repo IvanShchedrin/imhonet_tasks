@@ -1,0 +1,24 @@
+html, body{
+    padding: 0;
+    margin: 0;
+}
+#home{
+    position: relative;
+    width: 682px;
+    height: 510px;
+    background: url("image_empty.png") ;
+    -webkit-background-size: 100% 100%;
+    -moz-background-size: 100% 100%;
+    -o-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+#home span{
+    position: absolute;
+    font: 600 .56em Arial, sans-serif;
+}
+#home span a{
+    color: #6F9ACB;
+}
+#home span a:visited{
+    color: #6F9ACB;
+}
