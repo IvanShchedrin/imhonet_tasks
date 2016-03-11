@@ -4,32 +4,48 @@ html, body{
     width: 100%;
 }
 
-.list{
-    width: 290px;
+.list_wrap{
+    position: relative;
+    width: 300px;
     height: 500px;
-    overflow-x: hidden;
-    overflow-y: scroll;
     border: 2px solid #C3C3C3;
     font-family: "Arial Narrow", sans-serif;
 }
-.list ul{
+.list_wrap .list{
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.list_wrap .list ul{
     margin: 0;
     list-style-type: none;
     padding-left: 0;
 }
-.list ul li{
+.list_wrap .list ul li{
     margin: 6px 0 6px 6px;
 }
-.list .hidden{
-    display: none;
-}
-.list span{
+.list_wrap .list span{
     display: inline-block;
-    width: 300%;
+    width: 100%;
     padding: 6px 0 6px 6px;
     font-weight: 600;
     background-color: #E9EAEC;
     font-size: 1.1em;
     border-bottom: 2px solid #C3C3C3;
-    cursor: pointer;
+}
+.list_wrap .headers span{
+    display: inline-block;
+    width: 100%;
+    padding: 6px 0 6px 6px;
+    font-weight: 600;
+    background-color: #E9EAEC;
+    font-size: 1.1em;
+    border-bottom: 2px solid #C3C3C3;
+}
+.list_wrap .headers_wrap{
+    position: absolute;
+    height: 34px;
+    overflow: hidden;
+}
+.list_wrap .headers_wrap .headers{
 }
