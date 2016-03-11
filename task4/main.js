@@ -4,10 +4,10 @@ createList(inputString);
 
 var spans = document.querySelectorAll('.list_wrap .list span');
 var headers = document.querySelector('.list_wrap .headers_wrap .headers');
-var scrolledPrev = 0;
-var spanHeight = 34;
+var spanHeight = spans[0].offsetHeight;
 var spanCurrent = 1;
-headers.style.marginTop = '0px';
+
+console.log(spanHeight);
 
 document.querySelector('.list').onscroll = function(elem) {
     var scrolled = elem.target.scrollTop;
@@ -19,6 +19,14 @@ document.querySelector('.list').onscroll = function(elem) {
             return;
         }
         headers.style.marginTop = (spans[spanCurrent].offsetTop - scrolled - spanHeight - (spanHeight * (spanCurrent - 1))) + 'px';
+    }
+
+    if (scrolled < spans[spanCurrent - 1].offsetTop) {
+        spanCurrent--;
+    }
+
+    if (scrolled < spans[spanCurrent].offsetTop - spanHeight) {
+        headers.style.marginTop = '-' + spanHeight * (spanCurrent - 1) + 'px';
     }
 };
 
