@@ -2,20 +2,31 @@ var inputString = ["Агафья","Агриппина","Акулина","Але�
 
 createList(inputString);
 
-var listSpans = document.querySelectorAll('.list span');
+var spans = document.querySelectorAll('.list_wrap .list span');
+var headers = document.querySelector('.list_wrap .headers_wrap .headers');
+var scrolledPrev = 0;
+var spanHeight = 34;
+var spanCurrent = 1;
+headers.style.marginTop = '0px';
 
-for (var ii = 0; ii < listSpans.length; ii++) {
-    listSpans[ii].onclick = function(event) {
-        var nextElem = event.currentTarget.nextElementSibling;
-        if (nextElem.tagName !== 'UL') return;
-        nextElem.classList.toggle('hidden');
+document.querySelector('.list').onscroll = function(elem) {
+    var scrolled = elem.target.scrollTop;
+
+    if (scrolled > spans[spanCurrent].offsetTop - spanHeight) {
+        if (scrolled > spans[spanCurrent].offsetTop) {
+            spanCurrent++;
+            headers.style.marginTop = '-' + spanHeight * (spanCurrent - 1) + 'px';
+            return;
+        }
+        headers.style.marginTop = (spans[spanCurrent].offsetTop - scrolled - spanHeight - (spanHeight * (spanCurrent - 1))) + 'px';
     }
-}
+};
 
 function createList(arr) {
     if (!arr || arr.length === 0) return;
 
     var list = document.querySelector('.list');
+    var headersList = document.querySelector('.headers_wrap .headers');
     var firstLetter = 'Null';
     var arrElem;
 
@@ -30,13 +41,15 @@ function createList(arr) {
         addElement(arrElem);
     }
 
-    function createCategory(ltr) {
+    function createCategory(ltr, className) {
         var span = document.createElement('span');
         var ul = document.createElement('ul');
 
+        if (className) span.className = className;
         span.innerHTML = ltr;
         list.appendChild(span);
         list.appendChild(ul);
+        headersList.appendChild(span.cloneNode(true));
     }
 
     function addElement(str) {
